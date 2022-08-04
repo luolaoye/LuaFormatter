@@ -29,7 +29,7 @@ jobs:
         path: lua-format
 
   windows-artifact:
-    runs-on: windows-latest
+    runs-on: windows-2019
     steps:
     - name: Add msbuild to PATH
       uses: microsoft/setup-msbuild@v1.0.2

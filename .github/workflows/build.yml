@@ -33,7 +33,7 @@ jobs:
          CTEST_OUTPUT_ON_FAILURE=1 ctest
 
   windows:
-    runs-on: windows-latest
+    runs-on: windows-2019
     steps:
     - name: Add msbuild to PATH
       uses: microsoft/setup-msbuild@v1.0.2
@@ -42,6 +42,7 @@ jobs:
       run: |
          git submodule update --init
          cmake -G "Visual Studio 16 2019" -DCMAKE_BUILD_TYPE=Debug
+         type lua-format.vcxproj
          msbuild "lua-formatter.sln" /clp:ErrorsOnly /target:Build
          ctest -C Debug
 
